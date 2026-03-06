@@ -88,6 +88,24 @@ Choose the path that matches your experience:
 
 ---
 
+## Before you run (Telegram credentials)
+
+You need these values:
+
+- `BOT_TOKEN` (from **@BotFather**)
+- `API_ID` (from https://my.telegram.org)
+- `API_HASH` (from https://my.telegram.org)
+
+How to get them quickly:
+
+1. Open Telegram and chat with **@BotFather**
+2. Run `/newbot` and create your bot
+3. Copy the bot token
+4. Open https://my.telegram.org -> API Development Tools
+5. Create app and copy API ID + API HASH
+
+---
+
 ## One-click Google Colab (easiest)
 
 Click:
@@ -183,7 +201,7 @@ Copy `.env.example` to `.env` and set values.
 
 ## Deployment guides
 
-## Heroku
+### Heroku
 
 Already included:
 
@@ -208,7 +226,7 @@ Important: Heroku file system is ephemeral. For large/long-term storage, use ext
 
 ---
 
-## VPS Ubuntu
+### VPS Ubuntu
 
 ### 1) Install packages
 
@@ -254,7 +272,7 @@ Then add TLS using Certbot (recommended).
 
 ---
 
-## Google Colab
+### Google Colab
 
 Use `colab_setup.ipynb`:
 
