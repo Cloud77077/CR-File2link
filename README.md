@@ -20,6 +20,7 @@ Production-ready Telegram bot that converts uploaded files into secure, expiring
 - [What this bot does](#what-this-bot-does)
 - [Features](#features)
 - [Quick start options](#quick-start-options)
+- [Safe GitHub Actions test mode (1-2 hours)](#safe-github-actions-test-mode-1-2-hours)
 - [One-click Google Colab (easiest)](#one-click-google-colab-easiest)
 - [Local run](#local-run)
 - [Bot commands](#bot-commands)
@@ -85,6 +86,49 @@ Choose the path that matches your experience:
 | Non-technical / beginner | Google Colab | 5-10 min |
 | Want simple cloud deployment | Heroku | 10-20 min |
 | Want full control + domain + nginx | VPS Ubuntu | 20-40 min |
+
+---
+
+## Safe GitHub Actions test mode (1-2 hours)
+
+This repository includes a safe test workflow:
+
+- `.github/workflows/safe-bot-test.yml`
+
+Use it for temporary checks, not 24/7 hosting.
+
+### Why this is safer
+
+- Manual start only (`Run workflow`)
+- Duration is clamped to 15-180 minutes
+- Job auto-timeout
+- Auto-stop at the end
+- Test logs are uploaded as an artifact
+
+### One-time setup (simple steps)
+
+1. Open your GitHub repository.
+2. Go to **Settings -> Secrets and variables -> Actions**.
+3. Add these repository secrets:
+   - `BOT_TOKEN` (required)
+   - `API_ID` (required)
+   - `API_HASH` (required)
+   - `PUBLIC_BASE_URL` (optional)
+   - `ADMIN_IDS` (optional)
+   - `LINK_SIGNING_SECRET` (optional but recommended)
+
+### How to run
+
+1. Go to **Actions** tab in your repository.
+2. Open workflow: **Safe Bot Test Run**.
+3. Click **Run workflow**.
+4. Enter `duration_minutes` (for example `60` or `120`).
+5. Click **Run workflow** button.
+6. Open run logs and verify `health` checks are passing.
+
+### Important note
+
+This is intended for temporary testing (like daily 1-2 hours), not permanent hosting.
 
 ---
 
