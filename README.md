@@ -8,6 +8,8 @@ Turn files sent to your Telegram bot into:
 
 This guide is written for both technical and non-technical users.
 
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/kakarotoncloud/CR-F2L/blob/cursor/telegram-file-link-bot-99e0/colab_setup.ipynb)
+
 ---
 
 ## 1) What this project does
@@ -129,9 +131,15 @@ Important optional:
 
 If you are non-technical, start here.
 
+### One-click open
+
+Click this direct link:
+
+- https://colab.research.google.com/github/kakarotoncloud/CR-F2L/blob/cursor/telegram-file-link-bot-99e0/colab_setup.ipynb
+
 ### Steps
 
-1. Open `colab_setup.ipynb` in Google Colab.
+1. Click the **Open in Colab** button above.
 2. Run cells from top to bottom.
 3. Enter:
    - BOT TOKEN
