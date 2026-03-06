@@ -1,0 +1,8 @@
+aiosqlite
+fastapi
+jinja2
+pyrogram
+tgcrypto
+uvicorn[standard]
+python-dotenv
+aiofiles

@@ -1,0 +1,17 @@
+[Unit]
+Description=Telegram File Link Bot
+After=network.target
+
+[Service]
+Type=simple
+User=ubuntu
+Group=ubuntu
+WorkingDirectory=/opt/telegram-file-link-bot
+EnvironmentFile=/opt/telegram-file-link-bot/.env
+ExecStart=/opt/telegram-file-link-bot/.venv/bin/python -m bot.main
+Restart=always
+RestartSec=5
+TimeoutStopSec=20
+
+[Install]
+WantedBy=multi-user.target

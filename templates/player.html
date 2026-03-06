@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{ file_name }} - Stream</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0f172a;
+      color: #f8fafc;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 16px;
+    }
+    .card {
+      width: 100%;
+      max-width: 900px;
+      background: #111827;
+      border: 1px solid #1f2937;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+    }
+    .meta {
+      margin-bottom: 14px;
+      word-break: break-word;
+      color: #cbd5e1;
+    }
+    video, audio {
+      width: 100%;
+      border-radius: 8px;
+      background: #000;
+    }
+    .actions {
+      margin-top: 14px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+    .btn {
+      background: #2563eb;
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 14px;
+      display: inline-block;
+    }
+    .btn.secondary {
+      background: #0ea5e9;
+    }
+    .hint {
+      margin-top: 12px;
+      color: #94a3b8;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="meta">
+      <strong>File:</strong> {{ file_name }}
+    </div>
+
+    {% if mime_type.startswith("audio/") %}
+      <audio controls preload="metadata">
+        <source src="{{ stream_url }}" type="{{ mime_type }}" />
+        Your browser does not support HTML5 audio playback.
+      </audio>
+    {% else %}
+      <video id="player" controls preload="metadata">
+        <source src="{{ stream_url }}" type="{{ mime_type }}" />
+        Your browser does not support HTML5 video playback.
+      </video>
+    {% endif %}
+
+    <div class="actions">
+      <a class="btn" href="{{ download_url }}">Download file</a>
+      <a class="btn secondary" href="{{ stream_url }}">Open raw stream URL</a>
+      <a class="btn secondary" href="{{ hls_url }}">HLS (.m3u8)</a>
+    </div>
+    <div class="hint">
+      If playback fails in your browser, try the HLS link or the direct download.
+    </div>
+  </div>
+</body>
+</html>
